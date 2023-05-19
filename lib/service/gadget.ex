@@ -1,4 +1,4 @@
-defstruct Service.Gadget do
+defmodule Service.Gadget do
   alias __MODULE__
 
   defstruct(
