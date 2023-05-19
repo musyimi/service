@@ -1,18 +1,14 @@
 defmodule Service do
-  @moduledoc """
-  Documentation for `Service`.
-  """
 
-  @doc """
-  Hello world.
+  use Application
+  alias Service.ServiceSupervisor
 
-  ## Examples
+  def start(_type, _args)do
+    children = [
+      ServiceSupervisor
+    ]
 
-      iex> Service.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    opts = [strategy: :one_for_one, name: Service.Supervisor]
+    Supervisor.start_link(children, opts)
   end
 end
