@@ -15,4 +15,9 @@ defmodule Service.Delivery do
       address: address
     }
   end
+
+  def add_diagnostic(delivery, diagnostic) do
+    diagnostics = [diagnostic | delivery.diagnostics]
+    Map.put(delivery, :diagnostics,  diagnostics)
+  end
 end

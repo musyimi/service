@@ -15,4 +15,9 @@ defstruct Service.Gadget do
       model_number: model_number
     }
   end
+
+  def add_delivery(gadget, delivery) do
+    deliveries = [delivery | gadget.deliveries]
+    Map.put(gadget, :deliveries, deliveries)
+  end
 end
